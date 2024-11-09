@@ -478,6 +478,7 @@ class Structure(object):
 
     def solve_explicit_euler(self, dt=None, number_timesteps=None, scale_dt=1, verbose=True):
         """ Solve the system of equations by using the explicit euler scheme with increments over the time.
+        Usage of mass matrix is not implemented yet, therefore, the algorithm is equal to using the direct stiffness algorithm.
         Even though the smallest ciritcal timestep is calculated, it is still possible that the solution
         diverges. In this case, the direct stiffness method should be applied.
         :param dt: float

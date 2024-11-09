@@ -440,11 +440,6 @@ class Bridge(object):
         s.get_node(248).set_constraint(free_fixed_free)
         s.get_node(249).set_constraint(free_fixed_free)
 
-        # s.get_node(290).set_constraint(fixed_fixed_fixed)
-        # s.get_node(376).set_constraint(fixed_fixed_fixed)
-        # s.get_node(253).set_constraint(fixed_fixed_fixed)
-        # s.get_node(358).set_constraint(fixed_fixed_fixed)
-
         # Apply Force to nodes
         force = Force(0.0, 0.0, -750.0)
 
