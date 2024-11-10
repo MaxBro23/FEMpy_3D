@@ -1,14 +1,14 @@
 # FEMpy_3D
 Finite Element Method (FEM) Solver in 3D
 
-Hi and welcome to the FEMpy_3D project! FEMpy_3D is a fully object-oriented FEM solver in 3D-space, which can use both the direct stiffness method as well as explicit time integration (Forward-Euler discretizaion) to solve the given set of equations. The solver is written in Python and all necessary files are located in the source folder. The folder "Verification_documents" provides pdf-files which compare the results of the solver against the analytical solution. Examples are given in the "Examples" Folder. These examples cover everything of what the solver can do and should provide a good insight to get started. 
+Hi and welcome to the FEMpy_3D project! FEMpy_3D is a fully object-oriented FEM solver in 3D-space, which can use both the direct stiffness method as well as explicit time integration (Forward-Euler discretisation) to solve the given set of equations. The solver is written in Python and all necessary files are located in the source folder. The folder "Verification_documents" provides pdf-files which compare the results of the solver against the analytical solution. Examples are given in the "Examples" Folder. These examples cover everything of what the solver can do and should provide a good insight to get started. 
 
 # Thank you!
 A big thank you goes to the team behind [PyVista](https://github.com/pyvista/pyvista) for their great work, which made the visualisation possible in 3D-Space!
 Furthermore, [NumPy](https://github.com/numpy/numpy) provided all necessary algebraic tools to realise the calculations which take place.
 
 # Get started
-To install FEMpy_3D, download the source code and unzipp the folder. Open a powershell window in the extracted folder (shift + rightclick on windows) and enter the following into the powershell window:
+To install FEMpy_3D, download the source code and unzip the folder. Open a PowerShell window in the extracted folder (shift + rightclick on windows) and enter the following into the PowerShell window:
 ```bash
 py -m pip install .
 ```
