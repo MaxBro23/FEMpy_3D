@@ -12,9 +12,7 @@ To install FEMpy_3D, download the source code and unzipp the folder. Open a powe
 ```bash
 py -m pip install .
 ```
-Once the installation was successful, the scripts provided in "Examples" can be run.
-
-As mentioned, multiple examples are given such as the "Example_Demonstrator.py" which functions mainly as demonstrator of how all implemented element types work together. Its deformed structure is shown below. 
+Once the installation was successful, the scripts provided in "Examples" can be run. The "Example_Demonstrator.py" functions mainly as demonstrator for how all implemented element types work together. Its deformed structure is shown below. 
 ![image](https://github.com/user-attachments/assets/e55496f8-a603-4558-8551-c4af205bbbee)
 
 # Meshing:
