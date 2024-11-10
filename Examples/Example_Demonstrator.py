@@ -5,10 +5,10 @@ Automated structure generation algorithms are available in Structure.py.
 import sys
 import os
 sys.path.extend([str(os.getcwd())])
-from src.Constraint import Constraint
-from src.Force import Force
-from src.Structure import Structure
-from src.Viewer import Viewer
+from FEMpy_3D.Constraint import Constraint
+from FEMpy_3D.Force import Force
+from FEMpy_3D.Structure import Structure
+from FEMpy_3D.Viewer import Viewer
 import pyvista
 
 class Bridge(object):

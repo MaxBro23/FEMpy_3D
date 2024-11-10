@@ -1,11 +1,10 @@
 import sys
 import os
 sys.path.extend([str(os.getcwd())])
-from tabnanny import verbose
-from src.Structure import Structure
-from src.Viewer import Viewer
-from src.Constraint import Constraint
-from src.Force import Force
+from FEMpy_3D.Structure import Structure
+from FEMpy_3D.Viewer import Viewer
+from FEMpy_3D.Constraint import Constraint
+from FEMpy_3D.Force import Force
 import pyvista
 
 class struct_class(object):
@@ -22,7 +21,6 @@ class struct_class(object):
         s = Structure()
         # Create Mesh
         structured_mesh = s.create_cube_mesh(structure=s, width_x=x, length_y=y, height_z=z, elements_per_edge=elements_per_edge, e_mod=e_mod, poisson=poisson, density=density)
-
 
         # Apply constraints and force by identifying nodes by their coordinates
         fixed_fixed_fixed = Constraint(False, False, False)

@@ -1,10 +1,10 @@
 from datetime import datetime
 import numpy as np
-from src.Node import Node
-from src.Element_Truss import Element_Truss
-from src.Element_CST import Element_CST
-from src.Element_Hexahedral_SRI import Element_Linear_Hexahedral_SRI
-from src.Element_Hexahedral import Element_Linear_Hexahedral
+from .Node import Node
+from .Element_Truss import Element_Truss
+from .Element_CST import Element_CST
+from .Element_Hexahedral_SRI import Element_Linear_Hexahedral_SRI
+from .Element_Hexahedral import Element_Linear_Hexahedral
 
 
 class Structure(object):

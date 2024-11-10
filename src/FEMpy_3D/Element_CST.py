@@ -1,7 +1,7 @@
 import math
 
 import numpy as np
-from src.Constraint import Constraint
+from .Constraint import Constraint
 
 class Element_CST(object):
 

@@ -1,8 +1,8 @@
 import math
 
 import numpy as np
-from src.Force import Force
-from src.Constraint import Constraint
+from .Force import Force
+from .Constraint import Constraint
 
 
 class Node(object):
