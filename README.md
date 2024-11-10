@@ -5,13 +5,14 @@ Hi and welcome to the FEMpy_3D project! FEMpy_3D is a fully object-oriented FEM 
 
 # Thank you!
 A big thank you goes to the team behind [PyVista](https://github.com/pyvista/pyvista) for their great work, which made the visualisation possible in 3D-Space!
-Furthermore, [NumPy](https://github.com/numpy/numpy) provided all necessary algebraic tools to realise the compuations which take place.
+Furthermore, [NumPy](https://github.com/numpy/numpy) provided all necessary algebraic tools to realise the calculations which take place.
 
 # Get started
-To install FEMpy_3D, the source code can be downloaded and the folder has to be unzipped. Open a power shell window in the extracted folder (shift + rightclick on windows) and enter:
+To install FEMpy_3D, download the source code and unzipp the folder. Open a powershell window in the extracted folder (shift + rightclick on windows) and enter the following into the powershell window:
 ```bash
 py -m pip install .
 ```
+Once the installation was successful, the scripts provided in "Examples" can be run.
 
 As mentioned, multiple examples are given such as the "Example_Demonstrator.py" which functions mainly as demonstrator of how all implemented element types work together. Its deformed structure is shown below. 
 ![image](https://github.com/user-attachments/assets/e55496f8-a603-4558-8551-c4af205bbbee)
