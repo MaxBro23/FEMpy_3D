@@ -10,7 +10,7 @@ Furthermore, [NumPy](https://github.com/numpy/numpy) provided all necessary alge
 # Get started
 To install FEMpy_3D, download the source code and unzip the folder. Open a PowerShell window in the extracted folder (shift + rightclick on windows) and enter the following into the PowerShell window:
 ```bash
-py -m pip install .
+pip install .
 ```
 Once the installation was successful, the scripts provided in "Examples" can be run. The "Example_Demonstrator.py" functions mainly as demonstrator for how all implemented element types work together. Its deformed structure is shown below. 
 ![image](https://github.com/user-attachments/assets/e55496f8-a603-4558-8551-c4af205bbbee)
