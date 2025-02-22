@@ -515,8 +515,9 @@ class Structure(object):
         
         if number_timesteps is None:
             number_timesteps = 1 / dt
-
+        
         # Solver iteratively with explicit euler
+        last_printed_percentage = -1 
         for step in range(int(number_timesteps)):
 
             # Given that F=Ku, calculate difference between currently present internal forces and externally applied forces.
@@ -526,7 +527,13 @@ class Structure(object):
             # u_new = u_old + dt*(du/dt)
             displacements = displacements + dt * du_dt
 
-            print("Percentage done:" , ((int(step))/(int(number_timesteps))) * 100)
+            percentage_done = (step / number_timesteps) * 100
+            rounded_percentage = int(percentage_done)  # Ganzzahliger Prozentwert
+
+            # Print for each % done
+            if rounded_percentage > last_printed_percentage:
+                print(f"Percentage done: {rounded_percentage}%")
+                last_printed_percentage = rounded_percentage 
             
         print("Final Displacement Vector:", displacements) if verbose else None
         # Set dsplacement values to nodes
@@ -753,7 +760,7 @@ class Structure(object):
         return structure
 
 
-    def create_tri_mesh(self, structure, width_x, length_y, elements_per_edge, e_mod, poisson, density, height_cst, mode="Plane Sress"):
+    def create_tri_mesh(self, structure, width_x, length_y, elements_per_edge, e_mod, poisson, density, height_cst, mode="Plane Sress", verbose=False):
         """Create a 2D-Mesh with CST-Elements
 
         :param structure: object
@@ -816,7 +823,7 @@ class Structure(object):
 
         # Print number of created elements
         n_elements = elements.shape[0]
-        print(f"Number of CST-Elements: {n_elements}")
+        print(f"Number of CST-Elements: {n_elements}") if verbose else None
 
         # Set Mode of CST
         structure.set_CST_mode(str(mode))

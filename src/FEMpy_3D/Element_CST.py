@@ -24,6 +24,9 @@ class Element_CST(object):
 
     def get_density(self):
         return self.density
+    
+    def get_height(self):
+        return self.height
 
     def get_e_mod(self):
         return self.e_mod

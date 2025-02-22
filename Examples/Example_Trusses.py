@@ -2,10 +2,10 @@ import sys
 import os
 sys.path.extend([str(os.getcwd())])
 import math
-from FEMpy_3D.Constraint import Constraint
-from FEMpy_3D.Force import Force
-from FEMpy_3D.Structure import Structure
-from FEMpy_3D.Viewer import Viewer
+from src.FEMpy_3D.Constraint import Constraint
+from src.FEMpy_3D.Force import Force
+from src.FEMpy_3D.Structure import Structure
+from src.FEMpy_3D.Viewer import Viewer
 import pyvista
 
 class FE_Modell():
