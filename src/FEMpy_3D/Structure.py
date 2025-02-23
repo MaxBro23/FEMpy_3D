@@ -1,4 +1,5 @@
 from datetime import datetime
+from platform import node
 import numpy as np
 from .Node import Node
 from .Element_Truss import Element_Truss
@@ -829,3 +830,90 @@ class Structure(object):
         structure.set_CST_mode(str(mode))
         
         return structure
+    
+
+    # Read .k file and safe mesh data in structure object. Supports hexahedral elements
+    def read_ls_dyna_mesh(self, structure, path, e_mod, poisson, density):
+
+        elements_dict_lsdyna = {}
+        nodes_dict_lsdyna = {}
+
+        with open(path, "r") as file:
+            lines = file.readlines()
+
+        # Placeholder variable to distinguish between elements and nodes
+        current_section = None
+        # Iterate over all lines
+        for line in lines:
+            line = line.strip()
+            
+            # Skip comment lines
+            if line.startswith("$#") or line == "":
+                continue
+            
+            if line.startswith("*ELEMENT_SOLID"):
+                current_section = "elements"
+                continue
+            elif line.startswith("*NODE"):
+                current_section = "nodes"
+                continue
+            # Reset current section
+            elif line.startswith("*"):
+                current_section = None
+                continue
+            
+            if current_section == "elements":
+                parts = line.split()
+                # Ensure correctness of .k file. ELEMENT_SOLID must contain info for eid, pid & 8 nodes (=10)
+                if len(parts) >= 10:
+                    eid = int(parts[0])
+                    pid = int(parts[1])
+                    # Save node ID's
+                    node_ids = list(map(int, parts[2:]))
+                    elements_dict_lsdyna[eid] = {"pid": pid, "nodes": node_ids}
+            
+            elif current_section == "nodes":
+                parts = line.split()
+                # Ensure correctness of .k file. NODE must contain info for nid, x, y and z coords
+                if len(parts) >= 4:
+                    nid = int(parts[0])
+                    coords = tuple(map(float, parts[1:4]))
+                    nodes_dict_lsdyna[nid] = coords
+
+        """
+        Problem:
+            In elements_dict_lsdyna the nodes are stored with nid (e.g. 301, 302, 303, ...), but in the used data structure (self.nodes) indices start at 0.
+        Solution:
+            node_index_map[nid] returns the appropriate 0-based index in node_list for each nid.
+            This allows the elements to reference correctly.
+        """
+        # Safe nodes in structured list
+        node_list = list(nodes_dict_lsdyna.keys())
+        # Mapping nid → Index
+        node_index_map = {nid: idx for idx, nid in enumerate(node_list)}  
+
+        # Create all nodes and add them to self.nodes
+        for nid in node_list:
+            new_node = Node(nodes_dict_lsdyna.get(nid)[0], nodes_dict_lsdyna.get(nid)[1], nodes_dict_lsdyna.get(nid)[2], index=len(self.nodes))
+            self.nodes = np.append(self.nodes, new_node, axis=None)
+
+        # Create all elements
+        elements_indexed = {}
+
+        for eid, data in elements_dict_lsdyna.items():
+            # Transformation of indices
+            indexed_nodes = [node_index_map[nid] for nid in data["nodes"]]
+            elements_indexed[eid] = {
+                "pid": data["pid"],
+                "nodes": indexed_nodes
+            }
+        
+        # Get nodes indices and add the elements to the structre
+        for i in elements_indexed:
+            node1_id, node2_id, node3_id, node4_id, node5_id, node6_id, node7_id, node8_id = elements_indexed.get(i)["nodes"]
+
+            structure.add_linear_hexahedral_SRI(e_mod, poisson, density, node1_id, node2_id, node3_id, node4_id, node5_id, node6_id, node7_id, node8_id)
+
+        return structure
+
+

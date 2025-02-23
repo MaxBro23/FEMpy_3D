@@ -16,12 +16,12 @@ class Viewer(object):
         self.plotter = plotter
         self.cmap = "viridis" #  tab20b  viridis  cividis
 
-    def visualise_constraints_by_cones(self):
+    def visualise_constraints_by_cones(self, scale=0.02):
         """Visualise all constraints by cones.
         Constraints in x in red colour, in y in green and in z in blue.
         :return: None
         """
-        height = self.structure.get_max_distance()*0.02
+        height = self.structure.get_max_distance()*scale
         cone_x_list = np.empty(0, dtype=object)
         cone_y_list = np.empty(0, dtype=object)
         cone_z_list = np.empty(0, dtype=object)
@@ -49,11 +49,11 @@ class Viewer(object):
             for cone in cone_z_list:
                 self.plotter.add_mesh(cone, color='blue', specular=1.0, specular_power=10)
 
-    def visualise_forces_by_arrows(self):
+    def visualise_forces_by_arrows(self, scale=0.1):
         """Visualise all forces by arrows in red
         :return: None
         """
-        height = self.structure.get_max_distance()*0.1
+        height = self.structure.get_max_distance()*scale
         arrow_list = np.empty(0, dtype=object)
         for i in range(self.structure.get_number_of_nodes()):
             force = self.structure.get_node(i).get_force().get_force_vector()
