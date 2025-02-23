@@ -18,4 +18,6 @@ Once the installation was successful, the scripts provided in "Examples" can be 
 # Meshing:
 Automatic meshing is provided for simple structures. Either a 2D-Mesh or a 3D-Mesh can be constructed automatically using triangle or hexahedral elements. Other than that, more complex meshs can be constructed manually as the "Example_Demonstrator.py" shows. An example for the automatic meshing is shown below:
 ![image](https://github.com/user-attachments/assets/1002d953-7de6-42f6-b884-76011fc82a7e)
+Alternatively, it is also possible to read .k files from LS-DYNA to import a mesh modelled in LS-PrePost:
+![image](https://github.com/user-attachments/assets/23ff835a-118e-4692-acac-b758e10dc6e3)
 
