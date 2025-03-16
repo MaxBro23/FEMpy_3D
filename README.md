@@ -8,11 +8,8 @@ A big thank you goes to the team behind [PyVista](https://github.com/pyvista/pyv
 Furthermore, [NumPy](https://github.com/numpy/numpy) provided all necessary algebraic tools to realise the calculations which take place.
 
 # Get started
-To install FEMpy_3D, download the source code and unzip the folder. Open a PowerShell window in the extracted folder (shift + rightclick on windows) and enter the following into the PowerShell window:
-```bash
-pip install .
-```
-Once the installation was successful, the scripts provided in "Examples" can be run. The "Example_Demonstrator.py" functions mainly as demonstrator for how all implemented element types work together. Its deformed structure is shown below. 
+To install FEMpy_3D, download the source code and unzip the folder. Open your favourite code editor within the extracted folder, open any example .py file within the "Examples" folder and make sure all necessary packages are installed such as PyVista and NumPy. Then you should be able to just simply run the files. 
+The "Example_Demonstrator.py" functions mainly as demonstrator for how all implemented element types work together. Its deformed structure is shown below. 
 ![image](https://github.com/user-attachments/assets/e55496f8-a603-4558-8551-c4af205bbbee)
 
 # Meshing:
