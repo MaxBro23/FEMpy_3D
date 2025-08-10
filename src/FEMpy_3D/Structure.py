@@ -5,7 +5,7 @@ from .Node import Node
 from .Element_Truss import Element_Truss
 from .Element_CST import Element_CST
 from .Element_Hexahedral_SRI import Element_Linear_Hexahedral_SRI
-from .Element_Hexahedral import Element_Linear_Hexahedral
+from .Element_Hexahedral_STD import Element_Linear_Hexahedral_STD
 
 
 class Structure(object):
@@ -282,7 +282,7 @@ class Structure(object):
         :return: object
             Hexahedron Element with standard algorithm
         """
-        hexa = Element_Linear_Hexahedral(e_mod, poisson_ratio, density, self.nodes[node_1], self.nodes[node_2], self.nodes[node_3],self.nodes[node_4], self.nodes[node_5], self.nodes[node_6],self.nodes[node_7], self.nodes[node_8])
+        hexa = Element_Linear_Hexahedral_STD(e_mod, poisson_ratio, density, self.nodes[node_1], self.nodes[node_2], self.nodes[node_3],self.nodes[node_4], self.nodes[node_5], self.nodes[node_6],self.nodes[node_7], self.nodes[node_8])
         self.nodes_idx = np.append(self.nodes_idx, [node_1, node_2, node_3, node_4, node_5, node_6, node_7, node_8], axis=None)
         self.linear_hexa_nodes_coordinates_list.append(self.nodes[node_1].get_coordinates())
         self.linear_hexa_nodes_coordinates_list.append(self.nodes[node_2].get_coordinates())

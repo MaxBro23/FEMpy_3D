@@ -4,7 +4,7 @@ build-backend = 'setuptools.build_meta'
 
 [project]
 name = 'FEMpy_3D'
-version = '0.0.1'
+version = '0.0.2'
 description = 'FEM in Python'
 authors = [
     {name = 'Maximilian Brodt', email = 'maxbrodt@web.de'},
@@ -23,7 +23,8 @@ classifiers = [
 ]
 dependencies = [
     'numpy>=1.21.0',
-	'pyVista>=0.44.0'
+	'pyVista>=0.44.0',
+    'pytest>=8.4.1'
 ]
 
 [project.urls]
